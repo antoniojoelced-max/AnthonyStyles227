@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthony Styles - Sublimación & Diseño</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coral: #1A6FD4;
+    --coral-dark: #1255A8;
+    --coral-light: #4D9AFF;
+    --cream: #EEF4FD;
+    --ink: #08121A;
+    --muted: #6F7B8A;
+    --gold: #2783D4;
+    --surface: #FFFFFF;
+    --border: rgba(8,18,26,0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 64px;
+    border-bottom: 3px solid var(--coral);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--cream); letter-spacing: 3px; }
+  .nav-logo span { color: var(--coral); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: rgba(253,246,238,0.7); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: color .2s; }
+  .nav-links a:hover { color: var(--coral-light); }
+  .nav-cta { display: flex; gap: 1rem; align-items: center; }
+  .btn-admin { background: transparent; border: 1.5px solid rgba(253,246,238,0.3); color: var(--cream); padding: 7px 18px; border-radius: 4px; font-size: 13px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .2s; }
+  .btn-admin:hover { border-color: var(--coral); color: var(--coral-light); }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 92vh;
+    background: var(--ink);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    padding: 4rem 4rem 4rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-text {
+    position: absolute; bottom: -40px; left: -20px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 280px;
+    color: rgba(255,255,255,0.03); letter-spacing: 8px; line-height: 1;
+    user-select: none; pointer-events: none;
+  }
+  .hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--coral); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: 88px; line-height: 0.9; color: var(--cream); letter-spacing: 2px; margin-bottom: 1.5rem; }
+  .hero-title span { color: var(--coral); }
+  .hero-desc { color: rgba(253,246,238,0.6); font-size: 17px; line-height: 1.7; max-width: 420px; margin-bottom: 2.5rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--coral); color: white; padding: 14px 32px; border: none; border-radius: 4px; font-size: 15px; font-weight: 600; cursor: pointer; letter-spacing: .5px; transition: background .2s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: var(--coral-dark); }
+  .btn-outline { background: transparent; color: var(--cream); padding: 14px 32px; border: 1.5px solid rgba(253,246,238,0.3); border-radius: 4px; font-size: 15px; font-weight: 500; cursor: pointer; transition: all .2s; text-decoration: none; display: inline-block; }
+  .btn-outline:hover { border-color: var(--cream); }
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(253,246,238,0.12); }
+  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--cream); line-height: 1; }
+  .hero-stat-label { font-size: 12px; color: rgba(253,246,238,0.4); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+  .hero-right { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+  .hero-badge-wrap { position: relative; }
+  .hero-badge {
+    width: 220px; height: 220px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--coral) 0%, #5DAAFF 100%);
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    text-align: center; padding: 2rem;
+  }
+  .hero-badge-text { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: white; letter-spacing: 2px; line-height: 1.1; }
+  .hero-badge-sub { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 6px; text-transform: uppercase; letter-spacing: 2px; }
+  .hero-contact-card {
+    background: rgba(253,246,238,0.07); border: 1px solid rgba(253,246,238,0.15);
+    border-radius: 12px; padding: 1.5rem 2rem; text-align: center;
+  }
+  .hero-contact-label { font-size: 11px; color: var(--coral); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; font-family: 'Space Mono', monospace; }
+  .hero-contact-num { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--cream); letter-spacing: 3px; }
+  .hero-contact-desc { font-size: 13px; color: rgba(253,246,238,0.5); margin-top: 4px; }
+
+  /* ── CATEGORIES STRIP ── */
+  .cats-strip {
+    background: var(--coral); padding: 16px 0; overflow: hidden;
+    display: flex; gap: 0;
+  }
+  .cats-inner { display: flex; gap: 3rem; align-items: center; animation: marquee 20s linear infinite; white-space: nowrap; padding: 0 2rem; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .cat-item { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: white; letter-spacing: 3px; }
+  .cat-dot { width: 6px; height: 6px; background: rgba(255,255,255,0.5); border-radius: 50%; flex-shrink: 0; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 5rem 4rem; }
+  .section-label { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: var(--ink); letter-spacing: 1px; margin-bottom: 1rem; line-height: 1; }
+  .section-sub { color: var(--muted); font-size: 16px; max-width: 500px; line-height: 1.7; }
+
+  /* ── PRODUCTS ── */
+  #catalogo { background: var(--cream); }
+  .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+  .filter-tabs { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .tab { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 8px 18px; border-radius: 100px; font-size: 13px; cursor: pointer; transition: all .2s; font-family: 'DM Sans', sans-serif; }
+  .tab.active, .tab:hover { background: var(--coral); border-color: var(--coral); color: white; }
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+  .product-card {
+    background: var(--surface); border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--border); transition: transform .2s, box-shadow .2s;
+    cursor: pointer;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,18,8,0.12); }
+  .product-img {
+    aspect-ratio: 1; background: #F0EAE3;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px; position: relative; overflow: hidden;
+  }
+  .product-img img { width: 100%; height: 100%; object-fit: cover; }
+  .product-badge { position: absolute; top: 12px; left: 12px; background: var(--coral); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; }
+  .product-info { padding: 1.25rem; }
+  .product-cat { font-size: 11px; color: var(--coral); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; font-family: 'Space Mono', monospace; }
+  .product-name { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .product-desc-short { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 1rem; }
+  .product-footer { display: flex; justify-content: space-between; align-items: center; }
+  .product-price { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--ink); letter-spacing: 1px; }
+  .product-price span { font-size: 14px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 400; letter-spacing: 0; }
+  .btn-order { background: var(--ink); color: white; border: none; padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; transition: background .2s; font-family: 'DM Sans', sans-serif; }
+  .btn-order:hover { background: var(--coral); }
+  .no-products { text-align: center; padding: 4rem; color: var(--muted); font-size: 16px; grid-column: 1/-1; }
+
+  /* ── ABOUT ── */
+  #nosotros {
+    background: var(--ink); display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  #nosotros .section-title { color: var(--cream); }
+  #nosotros .section-sub { color: rgba(253,246,238,0.55); }
+  .about-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .about-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .about-icon { width: 40px; height: 40px; background: rgba(232,71,42,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+  .about-text h4 { color: var(--cream); font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .about-text p { color: rgba(253,246,238,0.5); font-size: 14px; line-height: 1.6; }
+  .qr-showcase { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+  .qr-frame { background: white; padding: 24px; border-radius: 16px; display: inline-block; }
+  .qr-frame img { width: 200px; height: 200px; display: block; }
+  .qr-label { font-family: 'Space Mono', monospace; font-size: 12px; color: rgba(253,246,238,0.4); text-align: center; letter-spacing: 3px; text-transform: uppercase; }
+
+  /* ── CONTACT ── */
+  #contacto { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+  .contact-item { display: flex; align-items: center; gap: 1.25rem; padding: 1.5rem; background: white; border-radius: 12px; border: 1px solid var(--border); }
+  .contact-icon { width: 52px; height: 52px; background: var(--coral); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+  .contact-info label { font-size: 11px; color: var(--coral); text-transform: uppercase; letter-spacing: 2px; font-family: 'Space Mono', monospace; }
+  .contact-info p { font-size: 18px; font-weight: 600; color: var(--ink); margin-top: 2px; }
+  .contact-info small { font-size: 13px; color: var(--muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); padding: 3rem 4rem; border-top: 3px solid var(--coral);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--cream); letter-spacing: 3px; }
+  .footer-logo span { color: var(--coral); }
+  .footer-copy { font-size: 13px; color: rgba(253,246,238,0.35); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { color: rgba(253,246,238,0.5); text-decoration: none; font-size: 13px; transition: color .2s; }
+  .footer-links a:hover { color: var(--coral-light); }
+
+  /* ── ADMIN MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface); border-radius: 16px; width: 90%; max-width: 680px;
+    max-height: 90vh; overflow-y: auto;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+  }
+  .modal-header {
+    padding: 1.5rem 2rem; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; background: var(--surface); z-index: 10;
+  }
+  .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: var(--ink); }
+  .modal-close { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--muted); transition: color .2s; }
+  .modal-close:hover { color: var(--ink); }
+  .modal-body { padding: 2rem; }
+
+  /* LOGIN */
+  .login-form { max-width: 360px; margin: 0 auto; text-align: center; }
+  .login-form h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; margin-bottom: .5rem; }
+  .login-form p { color: var(--muted); font-size: 14px; margin-bottom: 2rem; }
+  .field { margin-bottom: 1.25rem; text-align: left; }
+  .field label { font-size: 13px; font-weight: 500; color: var(--ink); display: block; margin-bottom: 6px; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
+    border-radius: 8px; font-size: 15px; font-family: 'DM Sans', sans-serif;
+    background: var(--cream); color: var(--ink); outline: none; transition: border .2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--coral); }
+  .field textarea { min-height: 80px; resize: vertical; }
+  .btn-full { width: 100%; background: var(--coral); color: white; padding: 13px; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background .2s; }
+  .btn-full:hover { background: var(--coral-dark); }
+  .login-error { color: #E24B4A; font-size: 13px; margin-top: .5rem; text-align: center; }
+
+  /* ADMIN PANEL */
+  .admin-tabs { display: flex; gap: .5rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+  .admin-tab { background: none; border: none; font-size: 14px; font-weight: 500; color: var(--muted); cursor: pointer; padding: 6px 16px; border-radius: 6px; transition: all .2s; font-family: 'DM Sans', sans-serif; }
+  .admin-tab.active { background: var(--coral); color: white; }
+  .admin-section { display: none; }
+  .admin-section.active { display: block; }
+
+  /* Product list in admin */
+  .admin-product-row {
+    display: flex; align-items: center; gap: 1rem; padding: 1rem;
+    border: 1px solid var(--border); border-radius: 10px; margin-bottom: .75rem;
+    background: var(--cream);
+  }
+  .admin-product-img { width: 56px; height: 56px; border-radius: 8px; background: #E8E0D8; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; overflow: hidden; }
+  .admin-product-img img { width: 100%; height: 100%; object-fit: cover; }
+  .admin-product-info { flex: 1; }
+  .admin-product-info h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .admin-product-info span { font-size: 12px; color: var(--muted); }
+  .admin-product-price { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--ink); }
+  .admin-actions { display: flex; gap: .5rem; }
+  .btn-icon { background: none; border: 1px solid var(--border); padding: 7px 12px; border-radius: 6px; cursor: pointer; font-size: 15px; transition: all .2s; }
+  .btn-icon.edit:hover { background: #EAF3DE; border-color: #639922; }
+  .btn-icon.del:hover { background: #FCEBEB; border-color: #E24B4A; }
+
+  /* form grid */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  /* Store info */
+  .info-card { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .info-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 1rem; color: var(--ink); }
+
+  /* ORDER MODAL */
+  .order-modal { max-width: 480px; }
+
+  /* ALERTS */
+  .alert { padding: 12px 16px; border-radius: 8px; font-size: 14px; margin-bottom: 1rem; }
+  .alert-success { background: #EAF3DE; color: #3B6D11; border: 1px solid #C0DD97; }
+  .alert-err { background: #FCEBEB; color: #A32D2D; border: 1px solid #F7C1C1; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    #home { grid-template-columns: 1fr; padding: 3rem 2rem; min-height: auto; }
+    .hero-right { display: none; }
+    .hero-title { font-size: 64px; }
+    section { padding: 3rem 1.5rem; }
+    #nosotros { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .form-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ANTHONY<span>STYLES</span></div>
+  <div class="nav-links">
+    <a href="#home">Inicio</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <div class="nav-cta"></div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg-text">STYLES</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">📍 Panamá · Sublimación Premium</div>
+    <h1 class="hero-title">TU ESTILO,<br>TU <span>IMAGINA</span>CIÓN</h1>
+    <p class="hero-desc">Personalizamos ropa, tazas, gorras, termos y más. Diseños únicos que hacen brillar tu identidad.</p>
+    <div class="hero-btns">
+      <a href="#catalogo" class="btn-primary">Ver Catálogo</a>
+      <a href="#contacto" class="btn-outline">Pedir Cotización</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">47+</div>
+        <div class="hero-stat-label">Publicaciones</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">37</div>
+        <div class="hero-stat-label">Seguidores</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Personalizado</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-badge">
+      <div class="hero-badge-text">SUBLIMACIÓN<br>& DISEÑO</div>
+      <div class="hero-badge-sub">Panamá</div>
+    </div>
+    <div class="hero-contact-card">
+      <div class="hero-contact-label">Contáctanos</div>
+      <div class="hero-contact-num">6552-5524</div>
+      <div class="hero-contact-desc">WhatsApp · Instagram</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="cats-strip">
+  <div class="cats-inner" id="marqueeInner">
+    <span class="cat-item">CAMISETAS</span><span class="cat-dot"></span>
+    <span class="cat-item">TAZAS MÁGICAS</span><span class="cat-dot"></span>
+    <span class="cat-item">GORRAS</span><span class="cat-dot"></span>
+    <span class="cat-item">TERMOS</span><span class="cat-dot"></span>
+    <span class="cat-item">POPSOCKETS</span><span class="cat-dot"></span>
+    <span class="cat-item">POSTERS</span><span class="cat-dot"></span>
+    <span class="cat-item">SUBLIMACIÓN</span><span class="cat-dot"></span>
+    <span class="cat-item">DISEÑO PERSONALIZADO</span><span class="cat-dot"></span>
+    <!-- duplicado para loop continuo -->
+    <span class="cat-item">CAMISETAS</span><span class="cat-dot"></span>
+    <span class="cat-item">TAZAS MÁGICAS</span><span class="cat-dot"></span>
+    <span class="cat-item">GORRAS</span><span class="cat-dot"></span>
+    <span class="cat-item">TERMOS</span><span class="cat-dot"></span>
+    <span class="cat-item">POPSOCKETS</span><span class="cat-dot"></span>
+    <span class="cat-item">POSTERS</span><span class="cat-dot"></span>
+    <span class="cat-item">SUBLIMACIÓN</span><span class="cat-dot"></span>
+    <span class="cat-item">DISEÑO PERSONALIZADO</span><span class="cat-dot"></span>
+  </div>
+</div>
+
+<!-- CATÁLOGO -->
+<section id="catalogo">
+  <div class="products-header">
+    <div>
+      <div class="section-label">Nuestros Productos</div>
+      <h2 class="section-title">CATÁLOGO</h2>
+    </div>
+    <div class="filter-tabs" id="filterTabs">
+      <button class="tab active" onclick="filterProducts('Todos', this)">Todos</button>
+      <button class="tab" onclick="filterProducts('Ropa', this)">Ropa</button>
+      <button class="tab" onclick="filterProducts('Tazas', this)">Tazas</button>
+      <button class="tab" onclick="filterProducts('Gorras', this)">Gorras</button>
+      <button class="tab" onclick="filterProducts('Termos', this)">Termos</button>
+      <button class="tab" onclick="filterProducts('Otros', this)">Otros</button>
+    </div>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div>
+    <div class="section-label">Quiénes somos</div>
+    <h2 class="section-title" style="color:var(--cream)">ANTHONY<br>STYLES</h2>
+    <p class="section-sub">Somos un negocio panameño especializado en sublimación y personalización. Damos vida a tus ideas en productos únicos y de calidad.</p>
+    <div class="about-list">
+      <div class="about-item">
+        <div class="about-icon">🎨</div>
+        <div class="about-text">
+          <h4>Diseño personalizado</h4>
+          <p>Llevamos tu imaginación a la realidad con diseños únicos para cada cliente.</p>
+        </div>
+      </div>
+      <div class="about-item">
+        <div class="about-icon">✅</div>
+        <div class="about-text">
+          <h4>Calidad garantizada</h4>
+          <p>Usamos materiales y técnicas de sublimación de alta calidad para resultados duraderos.</p>
+        </div>
+      </div>
+      <div class="about-item">
+        <div class="about-icon">🚀</div>
+        <div class="about-text">
+          <h4>Entrega rápida</h4>
+          <p>Trabajamos con eficiencia para que recibas tu pedido lo antes posible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="qr-showcase">
+    <div class="qr-frame">
+      <img src="anthonystyles227_qr.png" alt="QR Instagram Anthony Styles" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'width:200px;height:200px;display:flex;align-items:center;justify-content:center;font-size:80px;\'>📸</div>'">
+    </div>
+    <div class="qr-label">Síguenos en Instagram</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(253,246,238,0.6);letter-spacing:3px;">@ANTHONYSTYLES227</div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-label">Habla con nosotros</div>
+  <h2 class="section-title">CONTACTO</h2>
+  <p class="section-sub">¿Tienes una idea? Escríbenos y te ayudamos a hacerla realidad.</p>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="contact-icon">📱</div>
+      <div class="contact-info">
+        <label>WhatsApp / Teléfono</label>
+        <p>6552-5524</p>
+        <small>Disponible todos los días</small>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📸</div>
+      <div class="contact-info">
+        <label>Instagram</label>
+        <p>@anthonystyles227</p>
+        <small>Síguenos para ver más diseños</small>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div class="contact-info">
+        <label>Ubicación</label>
+        <p>Panamá</p>
+        <small>Envíos a nivel nacional</small>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">⚡</div>
+      <div class="contact-info">
+        <label>Pedidos</label>
+        <p>Cotización gratis</p>
+        <small>Respondemos en menos de 24h</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ANTHONY<span>STYLES</span></div>
+  <div class="footer-copy">© 2024 Anthony Styles · Hecho con ❤ en Panamá</div>
+  <div class="footer-links">
+    <a href="#home">Inicio</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</footer>
+
+<!-- ═══ ADMIN MODAL ═══ -->
+<div class="modal-overlay" id="adminOverlay" onclick="closeOnOverlay(event)">
+  <div class="modal" id="adminModal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">⚙ Panel Admin</div>
+      <button class="modal-close" onclick="closeAdmin()">✕</button>
+    </div>
+    <div class="modal-body">
+      <!-- LOGIN -->
+      <div id="loginSection">
+        <div class="login-form">
+          <h3>Bienvenido</h3>
+          <p>Ingresa tu contraseña para administrar la tienda</p>
+          <div class="field">
+            <label>Contraseña</label>
+            <input type="password" id="pwInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+          </div>
+          <button class="btn-full" onclick="doLogin()">Entrar al Panel</button>
+          <div class="login-error" id="loginError"></div>
+          <p style="margin-top:1rem;font-size:12px;color:var(--muted)">Contraseña por defecto: <strong>anthony2024</strong><br>Cámbiala en Configuración</p>
+        </div>
+      </div>
+
+      <!-- ADMIN PANEL -->
+      <div id="adminPanel" style="display:none">
+        <div class="admin-tabs">
+          <button class="admin-tab active" onclick="switchTab('tabProducts', this)">📦 Productos</button>
+          <button class="admin-tab" onclick="switchTab('tabAdd', this)">➕ Agregar</button>
+          <button class="admin-tab" onclick="switchTab('tabSettings', this)">⚙ Configuración</button>
+        </div>
+
+        <!-- TAB: PRODUCTOS -->
+        <div class="admin-section active" id="tabProducts">
+          <div id="adminProductList"></div>
+        </div>
+
+        <!-- TAB: AGREGAR -->
+        <div class="admin-section" id="tabAdd">
+          <div id="addAlert"></div>
+          <input type="hidden" id="editId">
+          <div class="form-grid">
+            <div class="field">
+              <label>Nombre del producto *</label>
+              <input type="text" id="fName" placeholder="Ej: Camiseta Dragon Ball">
+            </div>
+            <div class="field">
+              <label>Categoría *</label>
+              <select id="fCat">
+                <option value="Ropa">Ropa</option>
+                <option value="Tazas">Tazas</option>
+                <option value="Gorras">Gorras</option>
+                <option value="Termos">Termos</option>
+                <option value="Otros">Otros</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Precio (B/.) *</label>
+              <input type="number" id="fPrice" placeholder="Ej: 25.00" min="0" step="0.01">
+            </div>
+            <div class="field">
+              <label>Etiqueta (opcional)</label>
+              <input type="text" id="fBadge" placeholder="Ej: NUEVO · POPULAR">
+            </div>
+          </div>
+          <div class="field">
+            <label>Descripción corta</label>
+            <textarea id="fDesc" placeholder="Describe el producto..."></textarea>
+          </div>
+          <div class="field">
+            <label>Emoji representativo</label>
+            <input type="text" id="fEmoji" placeholder="Ej: 👕 🎩 ☕" maxlength="4" style="width:100px">
+          </div>
+          <div class="field">
+            <label>URL de imagen (opcional)</label>
+            <input type="url" id="fImg" placeholder="https://...">
+          </div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap">
+            <button class="btn-full" style="max-width:220px" onclick="saveProduct()">💾 Guardar Producto</button>
+            <button class="btn-full" style="max-width:160px;background:var(--muted)" onclick="clearForm()">Limpiar</button>
+          </div>
+        </div>
+
+        <!-- TAB: CONFIGURACIÓN -->
+        <div class="admin-section" id="tabSettings">
+          <div id="settingsAlert"></div>
+          <div class="info-card">
+            <h4>🔒 Cambiar Contraseña</h4>
+            <div class="field">
+              <label>Contraseña actual</label>
+              <input type="password" id="sOldPw" placeholder="••••••••">
+            </div>
+            <div class="field">
+              <label>Nueva contraseña</label>
+              <input type="password" id="sNewPw" placeholder="••••••••">
+            </div>
+            <div class="field">
+              <label>Confirmar nueva contraseña</label>
+              <input type="password" id="sConfPw" placeholder="••••••••">
+            </div>
+            <button class="btn-full" style="max-width:220px" onclick="changePw()">Cambiar contraseña</button>
+          </div>
+          <div class="info-card">
+            <h4>📊 Estadísticas</h4>
+            <p id="statsText" style="font-size:14px;color:var(--muted)"></p>
+          </div>
+          <div class="info-card">
+            <h4>⚠ Zona de peligro</h4>
+            <button class="btn-full" style="max-width:200px;background:#E24B4A" onclick="doLogout()">Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderOverlay" onclick="closeOrderOnOverlay(event)">
+  <div class="modal order-modal">
+    <div class="modal-header">
+      <div class="modal-title">🛒 Pedir / Cotizar</div>
+      <button class="modal-close" onclick="document.getElementById('orderOverlay').classList.remove('open')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="orderProductInfo" style="margin-bottom:1.5rem;padding:1rem;background:var(--cream);border-radius:10px;border:1px solid var(--border)"></div>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:1.5rem">Para hacer tu pedido contáctanos directamente. ¡Responderemos lo más pronto posible!</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a id="waLink" href="#" target="_blank" class="btn-primary" style="flex:1;text-align:center;padding:14px">📱 WhatsApp</a>
+        <a href="https://www.instagram.com/anthonystyles227" target="_blank" class="btn-outline" style="flex:1;text-align:center;padding:14px">📸 Instagram</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── STORAGE ───────────────────────────────
+const STORAGE_KEY = 'anthonyStyles_products';
+const PW_KEY = 'anthonyStyles_pw';
+const DEFAULT_PW = 'anthony2024';
+
+function loadProducts() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+}
+function saveProducts(arr) { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); }
+function getPassword() { return localStorage.getItem(PW_KEY) || DEFAULT_PW; }
+function setPassword(pw) { localStorage.setItem(PW_KEY, pw); }
+
+// ─── SAMPLE PRODUCTS (only first load) ────
+function initSampleProducts() {
+  if (loadProducts().length > 0) return;
+  const samples = [
+    { id: Date.now()+1, name: 'Camiseta Personalizada', cat: 'Ropa', price: 25.00, desc: 'Sublimación full HD en poliéster premium. Tallas S-XL.', emoji: '👕', img: '', badge: 'POPULAR' },
+    { id: Date.now()+2, name: 'Taza Mágica', cat: 'Tazas', price: 15.00, desc: 'Cambia de color con el calor. Tu diseño en cada sorbo.', emoji: '☕', img: '', badge: 'NUEVO' },
+    { id: Date.now()+3, name: 'Gorra Sublimada', cat: 'Gorras', price: 18.00, desc: 'Diseño 360° en tela transpirable. Ajustable.', emoji: '🧢', img: '', badge: '' },
+    { id: Date.now()+4, name: 'Termo Personalizado', cat: 'Termos', price: 22.00, desc: 'Mantiene frío/caliente 12h. Tu nombre o diseño.', emoji: '🧊', img: '', badge: '' },
+    { id: Date.now()+5, name: 'PopSocket Custom', cat: 'Otros', price: 8.00, desc: 'Soporte para celular con tu diseño favorito.', emoji: '📱', img: '', badge: '' },
+    { id: Date.now()+6, name: 'Poster / Cuadro', cat: 'Otros', price: 20.00, desc: 'Impresión en alta calidad para decorar tus espacios.', emoji: '🖼', img: '', badge: '' },
+  ];
+  saveProducts(samples);
+}
+
+// ─── RENDER STORE ──────────────────────────
+let currentFilter = 'Todos';
+
+function renderProducts(filter) {
+  const grid = document.getElementById('productsGrid');
+  let products = loadProducts();
+  if (filter && filter !== 'Todos') products = products.filter(p => p.cat === filter);
+  if (products.length === 0) {
+    grid.innerHTML = '<div class="no-products">No hay productos en esta categoría aún.</div>';
+    return;
+  }
+  grid.innerHTML = products.map(p => `
+    <div class="product-card" onclick="openOrder(${p.id})">
+      <div class="product-img">
+        ${p.img ? `<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-size:64px\'>${p.emoji||'📦'}</span>'">` : `<span style="font-size:64px">${p.emoji||'📦'}</span>`}
+        ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
+      </div>
+      <div class="product-info">
+        <div class="product-cat">${p.cat}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc-short">${p.desc||''}</div>
+        <div class="product-footer">
+          <div class="product-price">B/. ${parseFloat(p.price).toFixed(2)}<span> / unidad</span></div>
+          <button class="btn-order" onclick="event.stopPropagation();openOrder(${p.id})">Pedir</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProducts(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+// ─── ORDER MODAL ───────────────────────────
+function openOrder(id) {
+  const p = loadProducts().find(x => x.id === id);
+  if (!p) return;
+  const info = document.getElementById('orderProductInfo');
+  info.innerHTML = `<strong style="font-size:16px">${p.emoji||''} ${p.name}</strong><br><span style="color:var(--muted);font-size:14px">${p.cat} · B/. ${parseFloat(p.price).toFixed(2)}</span>`;
+  const msg = encodeURIComponent(`Hola! Me interesa: *${p.name}* (B/. ${parseFloat(p.price).toFixed(2)}). ¿Tienes disponibilidad?`);
+  document.getElementById('waLink').href = `https://wa.me/50765525524?text=${msg}`;
+  document.getElementById('orderOverlay').classList.add('open');
+}
+function closeOrderOnOverlay(e) { if (e.target.id==='orderOverlay') document.getElementById('orderOverlay').classList.remove('open'); }
+
+// ─── ADMIN ─────────────────────────────────
+let adminLoggedIn = false;
+
+function openAdmin() {
+  document.getElementById('adminOverlay').classList.add('open');
+  document.getElementById('loginError').textContent = '';
+  document.getElementById('pwInput').value = '';
+  if (adminLoggedIn) showAdminPanel();
+}
+function closeAdmin() { document.getElementById('adminOverlay').classList.remove('open'); }
+function closeOnOverlay(e) { if (e.target.id==='adminOverlay') closeAdmin(); }
+
+function doLogin() {
+  const pw = document.getElementById('pwInput').value;
+  if (pw === getPassword()) {
+    adminLoggedIn = true;
+    showAdminPanel();
+  } else {
+    document.getElementById('loginError').textContent = 'Contraseña incorrecta. Inténtalo de nuevo.';
+  }
+}
+
+function doLogout() {
+  adminLoggedIn = false;
+  document.getElementById('adminPanel').style.display = 'none';
+  document.getElementById('loginSection').style.display = 'block';
+  closeAdmin();
+}
+
+function showAdminPanel() {
+  document.getElementById('loginSection').style.display = 'none';
+  document.getElementById('adminPanel').style.display = 'block';
+  renderAdminProducts();
+  updateStats();
+}
+
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active');
+  if (tabId === 'tabProducts') renderAdminProducts();
+  if (tabId === 'tabSettings') updateStats();
+}
+
+function renderAdminProducts() {
+  const list = document.getElementById('adminProductList');
+  const products = loadProducts();
+  if (products.length === 0) {
+    list.innerHTML = '<p style="color:var(--muted);text-align:center;padding:2rem">No hay productos. Ve a ➕ Agregar para añadir.</p>';
+    return;
+  }
+  list.innerHTML = products.map(p => `
+    <div class="admin-product-row">
+      <div class="admin-product-img">
+        ${p.img ? `<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-size:28px\'>${p.emoji||'📦'}</span>'">` : (p.emoji||'📦')}
+      </div>
+      <div class="admin-product-info">
+        <h4>${p.name}</h4>
+        <span>${p.cat} ${p.badge ? '· '+p.badge : ''}</span>
+      </div>
+      <div class="admin-product-price">B/. ${parseFloat(p.price).toFixed(2)}</div>
+      <div class="admin-actions">
+        <button class="btn-icon edit" onclick="editProduct(${p.id})" title="Editar">✏️</button>
+        <button class="btn-icon del" onclick="deleteProduct(${p.id})" title="Eliminar">🗑️</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function editProduct(id) {
+  const p = loadProducts().find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('editId').value = id;
+  document.getElementById('fName').value = p.name;
+  document.getElementById('fCat').value = p.cat;
+  document.getElementById('fPrice').value = p.price;
+  document.getElementById('fDesc').value = p.desc || '';
+  document.getElementById('fEmoji').value = p.emoji || '';
+  document.getElementById('fImg').value = p.img || '';
+  document.getElementById('fBadge').value = p.badge || '';
+  // switch to add tab
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('tabAdd').classList.add('active');
+  document.querySelectorAll('.admin-tab')[1].classList.add('active');
+  showAlert('addAlert', 'Editando producto. Modifica los campos y guarda.', 'info');
+}
+
+function deleteProduct(id) {
+  if (!confirm('¿Eliminar este producto? Esta acción no se puede deshacer.')) return;
+  const products = loadProducts().filter(p => p.id !== id);
+  saveProducts(products);
+  renderAdminProducts();
+  renderProducts(currentFilter);
+}
+
+function saveProduct() {
+  const name = document.getElementById('fName').value.trim();
+  const cat = document.getElementById('fCat').value;
+  const price = parseFloat(document.getElementById('fPrice').value);
+  if (!name) { showAlert('addAlert', 'El nombre es obligatorio.', 'err'); return; }
+  if (isNaN(price) || price < 0) { showAlert('addAlert', 'Ingresa un precio válido.', 'err'); return; }
+
+  const editId = document.getElementById('editId').value;
+  const newP = {
+    id: editId ? parseInt(editId) : Date.now(),
+    name, cat, price,
+    desc: document.getElementById('fDesc').value.trim(),
+    emoji: document.getElementById('fEmoji').value.trim() || '📦',
+    img: document.getElementById('fImg').value.trim(),
+    badge: document.getElementById('fBadge').value.trim().toUpperCase(),
+  };
+  let products = loadProducts();
+  if (editId) {
+    products = products.map(p => p.id === parseInt(editId) ? newP : p);
+    showAlert('addAlert', '✅ Producto actualizado correctamente.', 'success');
+  } else {
+    products.push(newP);
+    showAlert('addAlert', '✅ Producto agregado correctamente.', 'success');
+  }
+  saveProducts(products);
+  clearForm();
+  renderProducts(currentFilter);
+}
+
+function clearForm() {
+  document.getElementById('editId').value = '';
+  ['fName','fCat','fPrice','fDesc','fEmoji','fImg','fBadge'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el.tagName === 'SELECT') el.value = 'Ropa'; else el.value = '';
+  });
+}
+
+function showAlert(containerId, msg, type) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = `<div class="alert alert-${type === 'err' ? 'err' : 'success'}">${msg}</div>`;
+  setTimeout(() => el.innerHTML = '', 4000);
+}
+
+function changePw() {
+  const old = document.getElementById('sOldPw').value;
+  const nw = document.getElementById('sNewPw').value;
+  const cf = document.getElementById('sConfPw').value;
+  if (old !== getPassword()) { showAlert('settingsAlert', 'La contraseña actual es incorrecta.', 'err'); return; }
+  if (nw.length < 6) { showAlert('settingsAlert', 'La nueva contraseña debe tener al menos 6 caracteres.', 'err'); return; }
+  if (nw !== cf) { showAlert('settingsAlert', 'Las contraseñas nuevas no coinciden.', 'err'); return; }
+  setPassword(nw);
+  showAlert('settingsAlert', '✅ Contraseña cambiada correctamente.', 'success');
+  ['sOldPw','sNewPw','sConfPw'].forEach(id => document.getElementById(id).value = '');
+}
+
+function updateStats() {
+  const products = loadProducts();
+  const cats = [...new Set(products.map(p => p.cat))];
+  document.getElementById('statsText').innerHTML = `
+    Total de productos: <strong>${products.length}</strong><br>
+    Categorías activas: <strong>${cats.join(', ') || 'Ninguna'}</strong>
+  `;
+}
+
+// ─── TECLA SECRETA: Ctrl + Shift + A ──────
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+    e.preventDefault();
+    openAdmin();
+  }
+});
+
+// ─── INIT ─────────────────────────────────
+initSampleProducts();
+renderProducts('Todos');
+</script>
+</body>
+</html>
